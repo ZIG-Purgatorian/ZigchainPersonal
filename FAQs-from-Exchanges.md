@@ -2,39 +2,29 @@
 
 This document provides essential information about ZIGChain for exchange integration and support.
 
-## Q1: Website Address
+### **Q1: Website Address**
 
 **A:** https://zigchain.com/
 
----
-
-## Q2: Digital Coin Name and Abbreviation
+### **Q2: Digital Coin Name and Abbreviation**
 
 **A:** ZIGcoin / ZIG
 
----
-
-## Q3: Block Explorer Address
+### **Q3: Block Explorer Address**
 
 **A:** https://app.range.org/zig/general
 
----
-
-## Q4: GitHub Address
+### **Q4: GitHub Address**
 
 **A:** https://github.com/ZIGChain
 
 **Note:** This is a private repository at this moment and requires requesting access.
 
----
-
-## Q5: Node Installation Documents
+### **Q5: Node Installation Documents**
 
 **A:** https://docs.zigchain.com/nodes_validators/setup-node
 
----
-
-## Q6: Recommended Hardware Requirements
+### **Q6: Recommended Hardware Requirements**
 
 **A:**
 
@@ -43,15 +33,11 @@ This document provides essential information about ZIGChain for exchange integra
 - **Storage:** 1 TB SSD
 - **Network:** Stable internet connection
 
----
-
-## Q7: Block Data of Mainnet or Snapshots
+### **Q7: Block Data of Mainnet or Snapshots**
 
 **A:** We can provide snapshot URL but it is dynamic and not on a website accessible yet.
 
----
-
-## Q8: Block Producing Rate (Average Interval Time of Each Block)
+### **Q8: Block Producing Rate (Average Interval Time of Each Block)**
 
 **A:** Around 3.12 seconds
 
@@ -78,36 +64,33 @@ S0=$(date -d "$T0" +%s)
 echo "scale=3; ($S1 - $S0) / ($LATEST - $EARLIER)" | bc
 ```
 
----
-
-## Q9: Precision of Each Transaction
+### **Q9: Precision of Each Transaction**
 
 **A:** Precision is with integers only. The smallest unit of ZIG is `uzig` which is 6 decimal places.
 
----
-
-## Q10: Public API Interface URL
+### **Q10: Public API Interface URL**
 
 **A:**
+
+**Mainnet:**
 
 - **API:** https://public-zigchain-lcd.numia.xyz
 - **RPC:** https://public-zigchain-rpc.numia.xyz
 
----
+**Testnet:**
 
-## Q11: Account Memo Function Support
+- **API:** https://public-zigchain-testnet-lcd.numia.xyz
+- **RPC:** https://public-zigchain-testnet-rpc.numia.xyz
+
+### **Q11: Account Memo Function Support**
 
 **A:** Memo is supported.
 
----
-
-## Q12: Creating Account Documents
+### **Q12: Creating Account Documents**
 
 **A:** https://docs.zigchain.com/general/accounts
 
----
-
-## Q13: Configuration File Directory
+### **Q13: Configuration File Directory**
 
 **A:** Default data directory: `~/.zigchain`
 
@@ -126,9 +109,7 @@ echo "scale=3; ($S1 - $S0) / ($LATEST - $EARLIER)" | bc
     └── priv_validator_state.json
 ```
 
----
-
-## Q14: How to Customize RPC Port and Block Data Directory
+### **Q14: How to Customize RPC Port and Block Data Directory**
 
 **A:**
 
@@ -147,15 +128,11 @@ To customize the home directory of the blockchain data when running, specify und
 zigchaind init mynode --home $PATH
 ```
 
----
-
-## Q15: RPC/SDK Documents Link
+### **Q15: RPC/SDK Documents Link**
 
 **A:** https://docs.zigchain.com/zigchain-sdk/introduction
 
----
-
-## Q16: API Instructions
+### **Q16: API Instructions**
 
 **A:** Common to any Cosmos blockchain. Check Swagger documentation: https://testnet-api.zigchain.com/
 
@@ -175,9 +152,10 @@ https://testnet-api.zigchain.com/cosmos/base/node/v1beta1/status
 
 ### 16.3 Access the Account History API
 
-Requires querying with a request similar to:
+**Endpoint:** `/cosmos/tx/v1beta1/txs?events=coin_received.receiver='{account}'&pagination.limit=100`
 
-**Endpoint:** `/cosmos/tx/v1beta1/txs?events=coin_received.receiver='zig1abc...'&pagination.limit=100`
+**Example Request:**  
+https://testnet-api.zigchain.com/cosmos/tx/v1beta1/txs?events=coin_received.receiver='zig1urape39hlscx2ed7vp5ck6lwa426lu97fx7fun'&pagination.limit=100
 
 ### 16.4 Access the Detailed Information of a Trade
 
@@ -230,15 +208,11 @@ zigchaind tx broadcast ~/output.file --chain-id zigchain-1 --node https://public
 **Example Request:**  
 https://testnet-api.zigchain.com/cosmos/bank/v1beta1/balances/zig1urape39hlscx2ed7vp5ck6lwa426lu97fx7fun
 
----
-
-## Q17: Preventive Measures to Avoid Chain's Forking
+### **Q17: Preventive Measures to Avoid Chain's Forking**
 
 **A:** Cosmos uses Comet BFT (= Tendermint BFT) that has instant finality.
 
----
-
-## Q18: Suggestions of Restoring and Recovering Accounts
+### **Q18: Suggestions of Restoring and Recovering Accounts**
 
 **A:**
 
@@ -250,24 +224,18 @@ https://testnet-api.zigchain.com/cosmos/bank/v1beta1/balances/zig1urape39hlscx2e
 zigchaind keys add --recover
 ```
 
----
-
-## Q19: The Coin Symbol
+### **Q19: The Coin Symbol**
 
 **A:** ZIG
 
----
-
-## Q20: Officially Recognized Wallets
+### **Q20: Officially Recognized Wallets**
 
 **A:**
 
 - Keplr Wallet
 - Leap Wallet
 
----
-
-## Q21: Cross-Chain Bridge Audit Report
+### **Q21: Cross-Chain Bridge Audit Report**
 
 **A:** ZIG exists on different networks:
 
@@ -279,15 +247,11 @@ zigchaind keys add --recover
 | Polygon   | `0x7bebd226154e865954a87650faefa8f485d36081`      |
 | Injective | `peggy0xb2617246d0c6c0087f18703d576831899ca94f01` |
 
----
-
-## Q22: POW Mode and 51% Attack Prevention
+### **Q22: POW Mode and 51% Attack Prevention**
 
 **A:** ZIGChain is a PoS (Proof of Stake) based chain, not POW.
 
----
-
-## Q23: Most Common Types of Transfers
+### **Q23: Most Common Types of Transfers**
 
 **A:** Common to Cosmos blockchains:
 
@@ -296,61 +260,39 @@ zigchaind keys add --recover
 - `MsgDelegate`
 - `MsgUndelegate`
 
----
-
-## Q24: Transaction Rollback
+### **Q24: Transaction Rollback**
 
 **A:** Cosmos has instant finality. There are no rollbacks.
 
----
-
-## Q25: Transaction Timeout Mechanism in TX Pool
+### **Q25: Transaction Timeout Mechanism in TX Pool**
 
 **A:** Common to Cosmos blockchains:
 
 - Transaction timeout mechanism through Mempool configurable in the `config.toml` file
 - Additionally, transfers can specify a `--timeout-height` flag
 
----
-
-## Q26: Rent or Reservation
+### **Q26: Rent or Reservation**
 
 **A:** Common to Cosmos blockchains. There is no rent or reservation.
 
----
-
-## Q27: UTXO Mode Transaction Failure Determination
+### **Q27: UTXO Mode Transaction Failure Determination**
 
 **A:** Common to Cosmos blockchains. ZIGChain uses account model, not UTXO.
 
----
-
-## Q28: Time to Start Mainnet Transfer
+### **Q28: Time to Start Mainnet Transfer**
 
 **A:** Mainnet transfer is already open.
 
----
-
-## Q29: Wallet Node Port Exposure
+### **Q29: Wallet Node Port Exposure**
 
 **A:** Light nodes require only P2P connection with the other nodes, usually through port 26656. NAT IP is acceptable.
 
----
-
-## Q30: Address Rules
+### **Q30: Address Rules**
 
 **A:** ZIGChain uses Bech32 prefixes for account and validator addresses:
 
 - **Account prefix:** `zig1`
 
----
-
-## Q31: Node IP Whitelist Requirement
+### **Q31: Node IP Whitelist Requirement**
 
 **A:** No whitelist is needed for synchronization.
-
----
-
-## Q32: Important Notice
-
-**A:** Please inform the community that addresses in MEXC cannot be used for deposit from mining.
